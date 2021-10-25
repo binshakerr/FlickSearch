@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		06DE4765EAFF0E7FF5A34AA8 /* Pods_FlickSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDC0ED221CA6FC6A5C5B080 /* Pods_FlickSearch.framework */; };
 		85FCB44BA2696122CDBA49C5 /* Pods_FlickSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7103BAE701A418774720E3 /* Pods_FlickSearchTests.framework */; };
+		DC1B13B1272769630061CFC5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13B0272769630061CFC5 /* SearchViewModel.swift */; };
+		DC1B13B3272769870061CFC5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13B2272769870061CFC5 /* SearchViewController.swift */; };
+		DC1B13BD27276AC00061CFC5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13B527276AC00061CFC5 /* Enums.swift */; };
+		DC1B13BF27276AC00061CFC5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13B727276AC00061CFC5 /* NetworkManager.swift */; };
+		DC1B13C127276AC00061CFC5 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13B927276AC00061CFC5 /* NetworkLogger.swift */; };
+		DC1B13C227276AC00061CFC5 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13BA27276AC00061CFC5 /* NetworkReachability.swift */; };
+		DC1B13C327276AC00061CFC5 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13BB27276AC00061CFC5 /* EndPoint.swift */; };
+		DC1B13C727276B410061CFC5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */; };
+		DC1B13C927276B4E0061CFC5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */; };
+		DC1B13CC27276F510061CFC5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13CB27276F510061CFC5 /* Environment.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
-		DCE946C7272760D700E84605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C6272760D700E84605 /* ViewController.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
 		DCE946D2272760DA00E84605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE946D0272760DA00E84605 /* LaunchScreen.storyboard */; };
@@ -34,9 +43,18 @@
 		ADDC0ED221CA6FC6A5C5B080 /* Pods_FlickSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B104B817BE95A27DAE618415 /* Pods-FlickSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickSearch.debug.xcconfig"; path = "Target Support Files/Pods-FlickSearch/Pods-FlickSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		BB7103BAE701A418774720E3 /* Pods_FlickSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1B13B0272769630061CFC5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		DC1B13B2272769870061CFC5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DC1B13B527276AC00061CFC5 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		DC1B13B727276AC00061CFC5 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DC1B13B927276AC00061CFC5 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		DC1B13BA27276AC00061CFC5 /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		DC1B13BB27276AC00061CFC5 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		DC1B13CB27276F510061CFC5 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCE946C6272760D700E84605 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
 		DCE946CE272760DA00E84605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCE946D1272760DA00E84605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +91,6 @@
 				395FC49E360925A1423CBA7A /* Pods-FlickSearchTests.debug.xcconfig */,
 				A411C4261244CC67F309B27C /* Pods-FlickSearchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +101,111 @@
 				BB7103BAE701A418774720E3 /* Pods_FlickSearchTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC1B13A7272768940061CFC5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13C527276B290061CFC5 /* Extensions */,
+				DCE946D0272760DA00E84605 /* LaunchScreen.storyboard */,
+				DCE946CE272760DA00E84605 /* Assets.xcassets */,
+				DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DC1B13A82727689E0061CFC5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		DC1B13A9272768A90061CFC5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DC1B13AA272768C40061CFC5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13AB272768DA0061CFC5 /* Search */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DC1B13AB272768DA0061CFC5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13AE272768F40061CFC5 /* View */,
+				DC1B13AD272768EC0061CFC5 /* ViewModel */,
+				DC1B13AC272768E20061CFC5 /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DC1B13AC272768E20061CFC5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13B2272769870061CFC5 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DC1B13AD272768EC0061CFC5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13B0272769630061CFC5 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC1B13AE272768F40061CFC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC1B13AF272769080061CFC5 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13B427276AC00061CFC5 /* Networking */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		DC1B13B427276AC00061CFC5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13B527276AC00061CFC5 /* Enums.swift */,
+				DC1B13B727276AC00061CFC5 /* NetworkManager.swift */,
+				DC1B13B927276AC00061CFC5 /* NetworkLogger.swift */,
+				DC1B13BA27276AC00061CFC5 /* NetworkReachability.swift */,
+				DC1B13BB27276AC00061CFC5 /* EndPoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DC1B13C527276B290061CFC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */,
+				DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DC1B13CA27276D320061CFC5 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13CB27276F510061CFC5 /* Environment.swift */,
+				DCE946C2272760D700E84605 /* AppDelegate.swift */,
+				DCE946D3272760DA00E84605 /* Info.plist */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		DCE946B6272760D700E84605 = {
@@ -109,12 +231,12 @@
 		DCE946C1272760D700E84605 /* FlickSearch */ = {
 			isa = PBXGroup;
 			children = (
-				DCE946C2272760D700E84605 /* AppDelegate.swift */,
-				DCE946C6272760D700E84605 /* ViewController.swift */,
-				DCE946D0272760DA00E84605 /* LaunchScreen.storyboard */,
-				DCE946CE272760DA00E84605 /* Assets.xcassets */,
-				DCE946D3272760DA00E84605 /* Info.plist */,
-				DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */,
+				DC1B13CA27276D320061CFC5 /* Configuration */,
+				DC1B13A9272768A90061CFC5 /* Data */,
+				DC1B13A82727689E0061CFC5 /* Domain */,
+				DC1B13AF272769080061CFC5 /* Infrastructure */,
+				DC1B13AA272768C40061CFC5 /* Presentation */,
+				DC1B13A7272768940061CFC5 /* Shared */,
 			);
 			path = FlickSearch;
 			sourceTree = "<group>";
@@ -294,9 +416,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCE946C7272760D700E84605 /* ViewController.swift in Sources */,
 				DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */,
+				DC1B13CC27276F510061CFC5 /* Environment.swift in Sources */,
+				DC1B13B1272769630061CFC5 /* SearchViewModel.swift in Sources */,
+				DC1B13C327276AC00061CFC5 /* EndPoint.swift in Sources */,
+				DC1B13BF27276AC00061CFC5 /* NetworkManager.swift in Sources */,
+				DC1B13BD27276AC00061CFC5 /* Enums.swift in Sources */,
+				DC1B13C927276B4E0061CFC5 /* UIView+Extensions.swift in Sources */,
+				DC1B13C727276B410061CFC5 /* UIViewController+Extensions.swift in Sources */,
+				DC1B13C127276AC00061CFC5 /* NetworkLogger.swift in Sources */,
+				DC1B13B3272769870061CFC5 /* SearchViewController.swift in Sources */,
 				DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */,
+				DC1B13C227276AC00061CFC5 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +587,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlickSearch/Info.plist;
+				INFOPLIST_FILE = FlickSearch/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -486,7 +617,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N455B9353D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlickSearch/Info.plist;
+				INFOPLIST_FILE = FlickSearch/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setMainViewController(){
-        let controller = ViewController()
+        let controller = SearchViewController()
         let navigation = UINavigationController(rootViewController: controller)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigation
