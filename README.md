@@ -17,7 +17,7 @@ sudo gem install cocoapods
 ## Install Pods
 -----------------------------------------
 ```
-cd "Project directory"/UGU
+cd "Project directory"/FlickSearch
 pod install
 ```
 
