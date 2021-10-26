@@ -30,6 +30,10 @@
 		DC6649E62727B1BC006A4F60 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649E52727B1BC006A4F60 /* DataState.swift */; };
 		DC6649E9272803AB006A4F60 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649E7272803AB006A4F60 /* PhotoDetailsViewController.swift */; };
 		DC6649EA272803AB006A4F60 /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6649E8272803AB006A4F60 /* PhotoDetailsViewController.xib */; };
+		DC6649EC27281FBF006A4F60 /* FlikerModelMock.json in Resources */ = {isa = PBXBuildFile; fileRef = DC6649EB27281FBF006A4F60 /* FlikerModelMock.json */; };
+		DC6649EE27281FCE006A4F60 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649ED27281FCE006A4F60 /* MockURLProtocol.swift */; };
+		DC6649F027281FF4006A4F60 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649EF27281FF4006A4F60 /* XCTestCase+Extensions.swift */; };
+		DC6649F2272821A1006A4F60 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649F1272821A1006A4F60 /* Utils.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -75,6 +79,10 @@
 		DC6649E52727B1BC006A4F60 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		DC6649E7272803AB006A4F60 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		DC6649E8272803AB006A4F60 /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
+		DC6649EB27281FBF006A4F60 /* FlikerModelMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FlikerModelMock.json; sourceTree = "<group>"; };
+		DC6649ED27281FCE006A4F60 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		DC6649EF27281FF4006A4F60 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		DC6649F1272821A1006A4F60 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 				DCE946CE272760DA00E84605 /* Assets.xcassets */,
 				DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */,
 				DC6649E52727B1BC006A4F60 /* DataState.swift */,
+				DC6649F1272821A1006A4F60 /* Utils.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -277,6 +286,9 @@
 		DCE946DB272760DA00E84605 /* FlickSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC6649EB27281FBF006A4F60 /* FlikerModelMock.json */,
+				DC6649ED27281FCE006A4F60 /* MockURLProtocol.swift */,
+				DC6649EF27281FF4006A4F60 /* XCTestCase+Extensions.swift */,
 				DCE946DC272760DA00E84605 /* FlickSearchTests.swift */,
 			);
 			path = FlickSearchTests;
@@ -312,6 +324,7 @@
 				DCE946D4272760DA00E84605 /* Sources */,
 				DCE946D5272760DA00E84605 /* Frameworks */,
 				DCE946D6272760DA00E84605 /* Resources */,
+				15BF1578B02C38DCFE435F7E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,12 +390,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6649EC27281FBF006A4F60 /* FlikerModelMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15BF1578B02C38DCFE435F7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlickSearchTests/Pods-FlickSearchTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlickSearchTests/Pods-FlickSearchTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlickSearchTests/Pods-FlickSearchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BAD1F263804917986DC9ACFD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +489,7 @@
 				DC1B13B1272769630061CFC5 /* SearchViewModel.swift in Sources */,
 				DC1B13C327276AC00061CFC5 /* EndPoint.swift in Sources */,
 				DC1B13BF27276AC00061CFC5 /* NetworkManager.swift in Sources */,
+				DC6649F2272821A1006A4F60 /* Utils.swift in Sources */,
 				DC1B13BD27276AC00061CFC5 /* Enums.swift in Sources */,
 				DC1B13CE272774A60061CFC5 /* PhotoService.swift in Sources */,
 				DC1B13D527277D6C0061CFC5 /* ErrorResponse.swift in Sources */,
@@ -480,6 +512,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE946DD272760DA00E84605 /* FlickSearchTests.swift in Sources */,
+				DC6649F027281FF4006A4F60 /* XCTestCase+Extensions.swift in Sources */,
+				DC6649EE27281FCE006A4F60 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

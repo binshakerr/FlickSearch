@@ -6,28 +6,59 @@
 //
 
 import XCTest
+import RxSwift
+import RxCocoa
+import RxTest
 @testable import FlickSearch
 
 class FlickSearchTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var scheduler: TestScheduler!
+    var disposeBag: DisposeBag!
+    var getPhotosSuccessData: Data!
+    var viewModel: SearchViewModel!
+    var networkManager: NetworkManager!
+    let timeOut: Double = 10
+    let searchString = "kitten"
+   
+    
+    override func setUp() {
+        scheduler = TestScheduler(initialClock: 0)
+        disposeBag = DisposeBag()
+        viewModel = SearchViewModel()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        networkManager = nil
+        getPhotosSuccessData = nil
+    }
+    
+    func testViewModelInitialState() {
+        XCTAssertTrue(viewModel.outputs.dataSubject.value.isEmpty)
+        XCTAssertEqual(viewModel.outputs.screenTitle, "Flickr Search")
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchSuccess() {
+        // Given
+        getPhotosSuccessData = Utils.MockResponseType.successFlickerData.sampleDataFor(self)
+        let session = getMockSessionFor(getPhotosSuccessData)
+        networkManager = NetworkManager(manager: session, unitTestSession: session, requiresValidation: false)
+        viewModel = SearchViewModel(manager: networkManager)
+        
+        // When
+        let photoObserver = scheduler.createObserver([PhotoItemViewModel].self)
+        viewModel.outputs
+            .dataSubject.bind(to: photoObserver)
+            .disposed(by: disposeBag)
+        scheduler.createColdObservable([.next(10, searchString)])
+            .bind(to: viewModel.inputs.searchSubject)
+            .disposed(by: disposeBag)
+        scheduler.start()
+        
+        // Then
+        let kittenElement = photoObserver.events.last?.value.element
+        XCTAssertEqual(kittenElement?.count, 100)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }
