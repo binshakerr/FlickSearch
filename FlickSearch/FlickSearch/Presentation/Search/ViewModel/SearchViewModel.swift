@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import CoreData
 
 protocol SearchViewModelInputs: AnyObject {
     var searchSubject: PublishSubject<String> { get }
@@ -17,8 +18,10 @@ protocol SearchViewModelOutputs: AnyObject {
     var dataSubject: BehaviorRelay<[PhotoItemViewModel]> { get }
     var stateSubject: BehaviorRelay<DataState> { get }
     var errorSubject: BehaviorRelay<String?> { get }
+    var pastSearches: BehaviorRelay<[String]> { get }
     var screenTitle: String { get }
     var cellIdentifier: String { get }
+    var savedCellIdentifier: String { get }
     var searchControllerPlaceHolder: String { get }
 }
 
@@ -36,39 +39,50 @@ class SearchViewModel: SearchViewModelProtocol {
     //MARK: - Inputs
     var searchSubject = PublishSubject<String>()
 
+
     //MARK: - Outputs
     let cellIdentifier = "SearchCell"
+    let savedCellIdentifier = "SavedCell"
     let screenTitle = "Flickr Search"
     let searchControllerPlaceHolder = "Search Photos"
     var dataSubject = BehaviorRelay<[PhotoItemViewModel]>(value: [])
     var stateSubject = BehaviorRelay<DataState>(value: .empty)
     var errorSubject = BehaviorRelay<String?>(value: nil)
+    var pastSearches = BehaviorRelay<[String]>(value: [])
+    var isSearching = BehaviorRelay<Bool>(value: false)
+
     
     //MARK: -
-    var currentPage = 1
-    let manager = NetworkManager.shared
+    private var currentPage = 1
+    private let manager = NetworkManager.shared
     private let disposeBag = DisposeBag()
-    var lastSearchedKeyword = ""
+    private var lastSearchedKeyword = ""
+    private let entityName = "SavedSearch"
+    private var managedPastSearches = [NSManagedObject]()
+
     
     init(){
         bindInputs()
+        loadSavedSearches()
     }
     
     func bindInputs(){
         inputs.searchSubject.subscribe(onNext: { [weak self] searchTerm in
-            let text = searchTerm.trimmingCharacters(in: .whitespacesAndNewlines)
-            guard text.count > 0 else {return}
-            guard let self = self else { return }
-            if searchTerm != self.lastSearchedKeyword {
-                self.resetSearch()
-            }
-            self.lastSearchedKeyword = searchTerm
-            self.searchPhotos(keyword: searchTerm)
+            self?.searchPhotos(keyword: searchTerm)
         }).disposed(by: disposeBag)
     }
     
     func searchPhotos(keyword: String) {
+        let text = keyword.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard text.count > 0 else {return}
+        if keyword != self.lastSearchedKeyword {
+            resetSearch()
+        }
+        lastSearchedKeyword = keyword
+        save(searchTerm: keyword)
+        isSearching.accept(true)
         stateSubject.accept(.loading)
+        
         let request = PhotoService.searchPhotos(keyword: keyword, pageNumber: currentPage)
         manager.request(request, type: SearchResult.self) { [weak self] (result, status) in
             guard let self = self else { return }
@@ -102,6 +116,43 @@ class SearchViewModel: SearchViewModelProtocol {
     
     func getPhotoItemViewModelAt(_ index: Int) -> PhotoItemViewModel {
         return dataSubject.value[index]
+    }
+    
+    func getSavedSearchAt(_ index: Int) -> String {
+        return pastSearches.value[index]
+    }
+    
+    func save(searchTerm: String) {
+      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      let managedContext = appDelegate.persistentContainer.viewContext
+      let entity =
+        NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
+      let person = NSManagedObject(entity: entity, insertInto: managedContext)
+      person.setValue(searchTerm, forKeyPath: "text")
+      appDelegate.saveContext()
+    }
+    
+    func loadSavedSearches(){
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+        let managedContext =
+        appDelegate.persistentContainer.viewContext
+        let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: entityName)
+        
+        do {
+            managedPastSearches = try managedContext.fetch(fetchRequest)
+            let texts = managedPastSearches.map({
+                $0.value(forKeyPath: "text") as? String ?? ""
+            })
+            pastSearches.accept(texts.reversed())
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
 }
