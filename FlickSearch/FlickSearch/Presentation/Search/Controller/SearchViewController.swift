@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         bindViewModel()
     }
@@ -47,11 +46,26 @@ class SearchViewController: UIViewController {
     }
     
     func bindViewModel(){
-        viewModel.outputs.dataSubject.bind(to: collectionView
-                                .rx
-                                .items(cellIdentifier: viewModel.cellIdentifier, cellType: SearchCell.self)) { (items, photoItem, cell) in
-            cell.imageURL = photoItem.imageURL
-        }
+        viewModel.outputs.dataSubject
+            .bind(to: collectionView
+                    .rx
+                    .items(cellIdentifier: viewModel.cellIdentifier, cellType: SearchCell.self)) { (items, photoItem, cell) in
+                cell.imageURL = photoItem.imageURL
+            }
+                    .disposed(by: disposeBag)
+        
+        viewModel.outputs.stateSubject
+            .subscribe(onNext:  { [weak self] state in
+            guard let self = self else { return }
+            state == .loading ? self.startLoading() : self.stopLoading()
+        })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.errorSubject
+            .subscribe(onNext:  { [weak self] message in
+            guard let self = self, let message = message else { return }
+            self.showSimpleAlert(title: "Error", message: message)
+        })
             .disposed(by: disposeBag)
         
         searchController.searchBar.rx.searchButtonClicked

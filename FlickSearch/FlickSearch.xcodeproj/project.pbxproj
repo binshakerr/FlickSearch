@@ -27,6 +27,7 @@
 		DC1B13D9272785560061CFC5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1B13D7272785560061CFC5 /* SearchCell.xib */; };
 		DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */; };
 		DC1B13DD27278FA50061CFC5 /* PhotoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */; };
+		DC6649E62727B1BC006A4F60 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649E52727B1BC006A4F60 /* DataState.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		DC1B13D7272785560061CFC5 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemViewModel.swift; sourceTree = "<group>"; };
+		DC6649E52727B1BC006A4F60 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				DCE946D0272760DA00E84605 /* LaunchScreen.storyboard */,
 				DCE946CE272760DA00E84605 /* Assets.xcassets */,
 				DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */,
+				DC6649E52727B1BC006A4F60 /* DataState.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				DC1B13C127276AC00061CFC5 /* NetworkLogger.swift in Sources */,
 				DC1B13B3272769870061CFC5 /* SearchViewController.swift in Sources */,
 				DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */,
+				DC6649E62727B1BC006A4F60 /* DataState.swift in Sources */,
 				DC1B13D8272785560061CFC5 /* SearchCell.swift in Sources */,
 				DC1B13C227276AC00061CFC5 /* NetworkReachability.swift in Sources */,
 			);
