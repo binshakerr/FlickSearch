@@ -7,6 +7,6 @@
 	<key>FLICKR_SECRET</key>
 	<string>4acdcfa112884a9d</string>
 	<key>BASE_URL</key>
-	<string>$(BASE_URL)</string>
+	<string>https://api.flickr.com</string>
 </dict>
 </plist>

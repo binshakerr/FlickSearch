@@ -16,7 +16,6 @@ enum NetworkResult<T> {
 enum ResponseStatus {
     case success
     case error
-    case errors
 }
 
 var customSessionManager: Session = {
@@ -70,14 +69,9 @@ extension NetworkManager: NetworkManagerType {
                         completion(.failure(error), .error)
                     }
                     
-                case .failure(_):
-                    do {
-                        guard let data = result.data else { return }
-                        let result = try JSONDecoder().decode(type.self, from: data)
-                        completion(.success(result), .errors)
-                    } catch let error {
-                        completion(.failure(error), .error)
-                    }
+                case .failure(let error):
+                    completion(.failure(error), .error)
+                    
                 }
             }
         } else { // Live Date
@@ -104,6 +98,7 @@ extension NetworkManager: NetworkManagerType {
                     switch statusCode {
                     
                     case 200...299:
+                        //see if it's error first
                         do {
                             let jsonData = try JSONSerialization.data(withJSONObject: response, options: .prettyPrinted)
                             let result = try JSONDecoder().decode(type.self, from: jsonData)
@@ -112,20 +107,16 @@ extension NetworkManager: NetworkManagerType {
                             print("error: ", error)
                             completion(.failure(error), .error)
                         }
-                    case 422: // Dictionary of custom error arrays
-                        do {
-                            guard let data = result.data else { return }
-                            let result = try JSONDecoder().decode(type.self, from: data)
-                            completion(.success(result), .errors)
-                        } catch let error {
-                            print("error: ", error)
-                            completion(.failure(error), .error)
-                        }
                     default: // Custom error
                         do {
-                            guard let data = result.data else { return }
-                            let result = try JSONDecoder().decode(type.self, from: data)
-                            completion(.success(result), .error)
+                            let jsonData = try JSONSerialization.data(withJSONObject: response, options: .prettyPrinted)
+                            let result = try JSONDecoder().decode(ErrorResponse.self, from: jsonData)
+                            let userInfo: [String : Any] = [
+                                NSLocalizedDescriptionKey:  NSLocalizedString("Error code: \(result.code ?? 0)", value: result.message ?? "", comment: "") ,
+//                                NSLocalizedFailureReasonErrorKey : NSLocalizedString("Connection", value: "No Internet Connection", comment: "")
+                            ]
+                            let error = NSError(domain: "", code: 0, userInfo: userInfo)
+                            completion(.failure(error), .error)
                         } catch let error {
                             print("error: ", error)
                             completion(.failure(error), .error)
@@ -133,28 +124,8 @@ extension NetworkManager: NetworkManagerType {
                     }
                     
                 case .failure(let error):
-                    switch statusCode {
-                    case 0: // No Internet Connection
-                        completion(.failure(error), .error)
-                    case 422: // Dictionary of custom error arrays
-                        do {
-                            guard let data = result.data else { return }
-                            let result = try JSONDecoder().decode(type.self, from: data)
-                            completion(.success(result), .errors)
-                        } catch let error {
-                            print("error: ", error)
-                            completion(.failure(error), .error)
-                        }
-                    default: // Custom error
-                        do {
-                            guard let data = result.data else { return }
-                            let result = try JSONDecoder().decode(type.self, from: data)
-                            completion(.success(result), .error)
-                        } catch let error {
-                            print("error: ", error)
-                            completion(.failure(error), .error)
-                        }
-                    }
+                    print("error: ", error)
+                    completion(.failure(error), .error)
                 }
             }
         }

@@ -19,6 +19,13 @@
 		DC1B13C727276B410061CFC5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */; };
 		DC1B13C927276B4E0061CFC5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */; };
 		DC1B13CC27276F510061CFC5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13CB27276F510061CFC5 /* Environment.swift */; };
+		DC1B13CE272774A60061CFC5 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13CD272774A60061CFC5 /* PhotoService.swift */; };
+		DC1B13D1272777980061CFC5 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13D0272777980061CFC5 /* SearchResult.swift */; };
+		DC1B13D3272777A10061CFC5 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13D2272777A10061CFC5 /* Photo.swift */; };
+		DC1B13D527277D6C0061CFC5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13D427277D6C0061CFC5 /* ErrorResponse.swift */; };
+		DC1B13D8272785560061CFC5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13D6272785560061CFC5 /* SearchCell.swift */; };
+		DC1B13D9272785560061CFC5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1B13D7272785560061CFC5 /* SearchCell.xib */; };
+		DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -53,6 +60,13 @@
 		DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DC1B13CB27276F510061CFC5 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DC1B13CD272774A60061CFC5 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		DC1B13D0272777980061CFC5 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		DC1B13D2272777A10061CFC5 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		DC1B13D427277D6C0061CFC5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		DC1B13D6272785560061CFC5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		DC1B13D7272785560061CFC5 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -117,6 +131,7 @@
 		DC1B13A82727689E0061CFC5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B13CF272777440061CFC5 /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -124,6 +139,7 @@
 		DC1B13A9272768A90061CFC5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B13CD272774A60061CFC5 /* PhotoService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -165,6 +181,8 @@
 		DC1B13AE272768F40061CFC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B13D6272785560061CFC5 /* SearchCell.swift */,
+				DC1B13D7272785560061CFC5 /* SearchCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +210,7 @@
 		DC1B13C527276B290061CFC5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */,
 				DC1B13C627276B410061CFC5 /* UIViewController+Extensions.swift */,
 				DC1B13C827276B4E0061CFC5 /* UIView+Extensions.swift */,
 			);
@@ -206,6 +225,16 @@
 				DCE946D3272760DA00E84605 /* Info.plist */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DC1B13CF272777440061CFC5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B13D0272777980061CFC5 /* SearchResult.swift */,
+				DC1B13D2272777A10061CFC5 /* Photo.swift */,
+				DC1B13D427277D6C0061CFC5 /* ErrorResponse.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		DCE946B6272760D700E84605 = {
@@ -333,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC1B13D9272785560061CFC5 /* SearchCell.xib in Resources */,
 				DCE946D2272760DA00E84605 /* LaunchScreen.storyboard in Resources */,
 				DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */,
 			);
@@ -417,16 +447,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */,
+				DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */,
 				DC1B13CC27276F510061CFC5 /* Environment.swift in Sources */,
 				DC1B13B1272769630061CFC5 /* SearchViewModel.swift in Sources */,
 				DC1B13C327276AC00061CFC5 /* EndPoint.swift in Sources */,
 				DC1B13BF27276AC00061CFC5 /* NetworkManager.swift in Sources */,
 				DC1B13BD27276AC00061CFC5 /* Enums.swift in Sources */,
+				DC1B13CE272774A60061CFC5 /* PhotoService.swift in Sources */,
+				DC1B13D527277D6C0061CFC5 /* ErrorResponse.swift in Sources */,
 				DC1B13C927276B4E0061CFC5 /* UIView+Extensions.swift in Sources */,
+				DC1B13D1272777980061CFC5 /* SearchResult.swift in Sources */,
+				DC1B13D3272777A10061CFC5 /* Photo.swift in Sources */,
 				DC1B13C727276B410061CFC5 /* UIViewController+Extensions.swift in Sources */,
 				DC1B13C127276AC00061CFC5 /* NetworkLogger.swift in Sources */,
 				DC1B13B3272769870061CFC5 /* SearchViewController.swift in Sources */,
 				DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */,
+				DC1B13D8272785560061CFC5 /* SearchCell.swift in Sources */,
 				DC1B13C227276AC00061CFC5 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
