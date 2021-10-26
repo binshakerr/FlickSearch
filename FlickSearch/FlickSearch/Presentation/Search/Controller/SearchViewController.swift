@@ -12,6 +12,7 @@ import RxCocoa
 class SearchViewController: UIViewController {
     
     private let viewModel = SearchViewModel()
+    private let searchController = UISearchController(searchResultsController: nil)
     private let disposeBag = DisposeBag()
     
     lazy var collectionView: UICollectionView = {
@@ -28,7 +29,6 @@ class SearchViewController: UIViewController {
         
         setupUI()
         bindViewModel()
-        viewModel.searchPhotos(keyword: "cat")
     }
     
     func setupUI(){
@@ -36,14 +36,27 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         collectionView.fillSuperview()
+        setupSearchController()
+    }
+    
+    func setupSearchController(){
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = viewModel.searchControllerPlaceHolder
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     func bindViewModel(){
-        viewModel.photos.bind(to: collectionView
+        viewModel.outputs.dataSubject.bind(to: collectionView
                                 .rx
                                 .items(cellIdentifier: viewModel.cellIdentifier, cellType: SearchCell.self)) { (items, photoItem, cell) in
             cell.imageURL = photoItem.imageURL
         }
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.searchButtonClicked
+            .compactMap {self.searchController.searchBar.text}
+            .bind(to: viewModel.inputs.searchSubject)
             .disposed(by: disposeBag)
     }
     
