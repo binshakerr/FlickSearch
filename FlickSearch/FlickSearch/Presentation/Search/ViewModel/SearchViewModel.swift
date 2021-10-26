@@ -54,14 +54,15 @@ class SearchViewModel: SearchViewModelProtocol {
     
     //MARK: -
     private var currentPage = 1
-    private let manager = NetworkManager.shared
+    private var manager: NetworkManagerType
     private let disposeBag = DisposeBag()
     private var lastSearchedKeyword = ""
     private let entityName = "SavedSearch"
     private var managedPastSearches = [NSManagedObject]()
 
     
-    init(){
+    init(manager: NetworkManagerType = NetworkManager.shared){
+        self.manager = manager
         bindInputs()
         loadSavedSearches()
     }
