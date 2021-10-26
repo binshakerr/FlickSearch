@@ -26,6 +26,7 @@
 		DC1B13D8272785560061CFC5 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13D6272785560061CFC5 /* SearchCell.swift */; };
 		DC1B13D9272785560061CFC5 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1B13D7272785560061CFC5 /* SearchCell.xib */; };
 		DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */; };
+		DC1B13DD27278FA50061CFC5 /* PhotoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		DC1B13D6272785560061CFC5 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		DC1B13D7272785560061CFC5 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemViewModel.swift; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				DC1B13B0272769630061CFC5 /* SearchViewModel.swift */,
+				DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */,
+				DC1B13DD27278FA50061CFC5 /* PhotoItemViewModel.swift in Sources */,
 				DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */,
 				DC1B13CC27276F510061CFC5 /* Environment.swift in Sources */,
 				DC1B13B1272769630061CFC5 /* SearchViewModel.swift in Sources */,

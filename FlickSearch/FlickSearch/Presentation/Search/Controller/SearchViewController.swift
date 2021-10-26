@@ -6,19 +6,20 @@
 //
 
 import UIKit
-import SwiftUI
+import RxSwift
+import RxCocoa
 
 class SearchViewController: UIViewController {
     
     private let viewModel = SearchViewModel()
+    private let disposeBag = DisposeBag()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.delegate = self
-        collection.dataSource = self
         collection.register(UINib(nibName: viewModel.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: viewModel.cellIdentifier)
-        collection.backgroundColor = .yellow
         return collection
     }()
     
@@ -26,53 +27,40 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        viewModel.searchPhotos(keyword: "cat", pageNumber: 1) { photos, error in
-            
-            if let error = error {
-                self.showSimpleAlert(title: "Error", message: error)
-            } else {
-                self.collectionView.reloadData()
-            }
-            
-        }
+        bindViewModel()
+        viewModel.searchPhotos(keyword: "cat")
     }
     
     func setupUI(){
-        view.backgroundColor = .red
+        navigationItem.title = viewModel.screenTitle
+        view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         collectionView.fillSuperview()
+    }
+    
+    func bindViewModel(){
+        viewModel.photos.bind(to: collectionView
+                                .rx
+                                .items(cellIdentifier: viewModel.cellIdentifier, cellType: SearchCell.self)) { (items, photoItem, cell) in
+            cell.imageURL = photoItem.imageURL
+        }
+            .disposed(by: disposeBag)
     }
     
 }
 
 
 
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.photos.count
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellIdentifier, for: indexPath) as? SearchCell else {
-            return UICollectionViewCell()
-        }
-        let currentImage = viewModel.photos[indexPath.item]
-        let imageString = "https://farm\(currentImage.farm ?? 0).static.flickr.com/\(currentImage.server ?? "")/\(currentImage.id ?? "")_\(currentImage.secret ?? "").jpg"
-        cell.imageURLString = imageString
-        return cell
-    }
-    
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width / 2 - 20
+        let width = collectionView.bounds.width / 2 - 15
         let height = collectionView.bounds.height / 3 - 10
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        viewModel.loadMoreItems(indexPath.item)
     }
     
     

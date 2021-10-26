@@ -12,9 +12,9 @@ class SearchCell: UICollectionViewCell {
     
     @IBOutlet weak var searchImageView: UIImageView!
     
-    var imageURLString: String? {
+    var imageURL: URL? {
         didSet {
-            guard let imageURL = URL(string: imageURLString ?? "") else {
+            guard let imageURL = imageURL else {
                 return
             }
             searchImageView.kf.setImage(with: imageURL)
