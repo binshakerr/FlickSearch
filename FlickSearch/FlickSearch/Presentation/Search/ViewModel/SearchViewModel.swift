@@ -100,4 +100,8 @@ class SearchViewModel: SearchViewModelProtocol {
         lastSearchedKeyword = ""
     }
     
+    func getPhotoItemViewModelAt(_ index: Int) -> PhotoItemViewModel {
+        return dataSubject.value[index]
+    }
+    
 }

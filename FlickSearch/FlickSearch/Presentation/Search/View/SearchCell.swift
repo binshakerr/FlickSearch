@@ -17,6 +17,7 @@ class SearchCell: UICollectionViewCell {
             guard let imageURL = imageURL else {
                 return
             }
+            searchImageView.kf.indicatorType = .activity
             searchImageView.kf.setImage(with: imageURL)
         }
     }

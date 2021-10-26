@@ -74,6 +74,12 @@ class SearchViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    func openPhotoDetails(_ index: Int) {
+        let photo = viewModel.getPhotoItemViewModelAt(index)
+        let controller = PhotoDetailsViewController(photo: photo)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
 
 
@@ -92,6 +98,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        openPhotoDetails(indexPath.item)
     }
 }

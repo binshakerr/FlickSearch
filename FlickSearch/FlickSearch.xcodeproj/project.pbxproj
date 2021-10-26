@@ -28,6 +28,8 @@
 		DC1B13DB2727896D0061CFC5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */; };
 		DC1B13DD27278FA50061CFC5 /* PhotoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */; };
 		DC6649E62727B1BC006A4F60 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649E52727B1BC006A4F60 /* DataState.swift */; };
+		DC6649E9272803AB006A4F60 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649E7272803AB006A4F60 /* PhotoDetailsViewController.swift */; };
+		DC6649EA272803AB006A4F60 /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6649E8272803AB006A4F60 /* PhotoDetailsViewController.xib */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		DC1B13DA2727896D0061CFC5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		DC1B13DC27278FA50061CFC5 /* PhotoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemViewModel.swift; sourceTree = "<group>"; };
 		DC6649E52727B1BC006A4F60 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
+		DC6649E7272803AB006A4F60 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		DC6649E8272803AB006A4F60 /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -162,17 +166,8 @@
 			children = (
 				DC1B13AE272768F40061CFC5 /* View */,
 				DC1B13AD272768EC0061CFC5 /* ViewModel */,
-				DC1B13AC272768E20061CFC5 /* Controller */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		DC1B13AC272768E20061CFC5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DC1B13B2272769870061CFC5 /* SearchViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		DC1B13AD272768EC0061CFC5 /* ViewModel */ = {
@@ -187,8 +182,11 @@
 		DC1B13AE272768F40061CFC5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B13B2272769870061CFC5 /* SearchViewController.swift */,
 				DC1B13D6272785560061CFC5 /* SearchCell.swift */,
 				DC1B13D7272785560061CFC5 /* SearchCell.xib */,
+				DC6649E7272803AB006A4F60 /* PhotoDetailsViewController.swift */,
+				DC6649E8272803AB006A4F60 /* PhotoDetailsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,6 +368,7 @@
 			files = (
 				DC1B13D9272785560061CFC5 /* SearchCell.xib in Resources */,
 				DCE946D2272760DA00E84605 /* LaunchScreen.storyboard in Resources */,
+				DC6649EA272803AB006A4F60 /* PhotoDetailsViewController.xib in Resources */,
 				DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +465,7 @@
 				DC1B13D1272777980061CFC5 /* SearchResult.swift in Sources */,
 				DC1B13D3272777A10061CFC5 /* Photo.swift in Sources */,
 				DC1B13C727276B410061CFC5 /* UIViewController+Extensions.swift in Sources */,
+				DC6649E9272803AB006A4F60 /* PhotoDetailsViewController.swift in Sources */,
 				DC1B13C127276AC00061CFC5 /* NetworkLogger.swift in Sources */,
 				DC1B13B3272769870061CFC5 /* SearchViewController.swift in Sources */,
 				DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */,
