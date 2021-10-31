@@ -128,11 +128,20 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func loadSavedSearches(){
+        //load from coreData
         if let searches = coreDataManager.loadObjects(entityName) {
+            //map them to array of strings
             let texts = searches.map({
                 $0.value(forKeyPath: "text") as? String ?? ""
             })
-            pastSearches.accept(texts.reversed())
+            //get unique searches only
+            let uniqueSearches = texts.unique()
+            //get last 10 searches
+            let lastSearches = uniqueSearches.suffix(10)
+            //reverse the array to get most recent at top
+            let reversed = lastSearches.reversed()
+            //accept the final value
+            pastSearches.accept(Array(reversed))
         }
     }
     
