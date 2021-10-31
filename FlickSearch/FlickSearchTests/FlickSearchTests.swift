@@ -29,6 +29,7 @@ class FlickSearchTests: XCTestCase {
     }
 
     override func tearDown() {
+        viewModel = nil 
         networkManager = nil
         getPhotosSuccessData = nil
     }
@@ -43,7 +44,7 @@ class FlickSearchTests: XCTestCase {
         getPhotosSuccessData = Utils.MockResponseType.successFlickerData.sampleDataFor(self)
         let session = getMockSessionFor(getPhotosSuccessData)
         networkManager = NetworkManager(manager: session, unitTestSession: session, requiresValidation: false)
-        viewModel = SearchViewModel(manager: networkManager)
+        viewModel = SearchViewModel(networkManager: networkManager)
         
         // When
         let photoObserver = scheduler.createObserver([PhotoItemViewModel].self)

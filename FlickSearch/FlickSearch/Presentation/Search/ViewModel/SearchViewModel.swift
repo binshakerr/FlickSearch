@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import CoreData
 
 protocol SearchViewModelInputs: AnyObject {
     var searchSubject: PublishSubject<String> { get }
@@ -54,15 +53,15 @@ class SearchViewModel: SearchViewModelProtocol {
     
     //MARK: -
     private var currentPage = 1
-    private var manager: NetworkManagerType
+    private var networkManager: NetworkManagerType
+    private var coreDataManager: CoreDataMangerType
     private let disposeBag = DisposeBag()
     private var lastSearchedKeyword = ""
     private let entityName = "SavedSearch"
-    private var managedPastSearches = [NSManagedObject]()
-
     
-    init(manager: NetworkManagerType = NetworkManager.shared){
-        self.manager = manager
+    init(networkManager: NetworkManagerType = NetworkManager.shared, coreDataManager: CoreDataMangerType = CoreDataManager.shared){
+        self.networkManager = networkManager
+        self.coreDataManager = coreDataManager
         bindInputs()
         loadSavedSearches()
     }
@@ -85,7 +84,7 @@ class SearchViewModel: SearchViewModelProtocol {
         stateSubject.accept(.loading)
         
         let request = PhotoService.searchPhotos(keyword: keyword, pageNumber: currentPage)
-        manager.request(request, type: SearchResult.self) { [weak self] (result, status) in
+        networkManager.request(request, type: SearchResult.self) { [weak self] (result, status) in
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -124,35 +123,16 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func save(searchTerm: String) {
-      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return
-      }
-      let managedContext = appDelegate.persistentContainer.viewContext
-      let entity =
-        NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
-      let person = NSManagedObject(entity: entity, insertInto: managedContext)
-      person.setValue(searchTerm, forKeyPath: "text")
-      appDelegate.saveContext()
+        let values = ["text": searchTerm]
+        coreDataManager.save(values: values, entityName: entityName)
     }
     
     func loadSavedSearches(){
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-                    return
-                }
-        let managedContext =
-        appDelegate.persistentContainer.viewContext
-        let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: entityName)
-        
-        do {
-            managedPastSearches = try managedContext.fetch(fetchRequest)
-            let texts = managedPastSearches.map({
+        if let searches = coreDataManager.loadObjects(entityName) {
+            let texts = searches.map({
                 $0.value(forKeyPath: "text") as? String ?? ""
             })
             pastSearches.accept(texts.reversed())
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     

@@ -34,6 +34,7 @@
 		DC6649EE27281FCE006A4F60 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649ED27281FCE006A4F60 /* MockURLProtocol.swift */; };
 		DC6649F027281FF4006A4F60 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649EF27281FF4006A4F60 /* XCTestCase+Extensions.swift */; };
 		DC6649F2272821A1006A4F60 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6649F1272821A1006A4F60 /* Utils.swift */; };
+		DC9D5EE5272EC1E70016835A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9D5EE4272EC1E70016835A /* CoreDataManager.swift */; };
 		DCE946C3272760D700E84605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE946C2272760D700E84605 /* AppDelegate.swift */; };
 		DCE946CD272760D700E84605 /* FlickSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE946CB272760D700E84605 /* FlickSearch.xcdatamodeld */; };
 		DCE946CF272760DA00E84605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE946CE272760DA00E84605 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		DC6649ED27281FCE006A4F60 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		DC6649EF27281FF4006A4F60 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		DC6649F1272821A1006A4F60 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		DC9D5EE4272EC1E70016835A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DCE946BF272760D700E84605 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE946C2272760D700E84605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCE946CC272760D700E84605 /* FlickSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickSearch.xcdatamodel; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		DC1B13AF272769080061CFC5 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				DC9D5EE3272EC1CB0016835A /* CoreData */,
 				DC1B13B427276AC00061CFC5 /* Networking */,
 			);
 			path = Infrastructure;
@@ -248,6 +251,14 @@
 				DC1B13D427277D6C0061CFC5 /* ErrorResponse.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		DC9D5EE3272EC1CB0016835A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DC9D5EE4272EC1E70016835A /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		DCE946B6272760D700E84605 = {
@@ -490,6 +501,7 @@
 				DC1B13C327276AC00061CFC5 /* EndPoint.swift in Sources */,
 				DC1B13BF27276AC00061CFC5 /* NetworkManager.swift in Sources */,
 				DC6649F2272821A1006A4F60 /* Utils.swift in Sources */,
+				DC9D5EE5272EC1E70016835A /* CoreDataManager.swift in Sources */,
 				DC1B13BD27276AC00061CFC5 /* Enums.swift in Sources */,
 				DC1B13CE272774A60061CFC5 /* PhotoService.swift in Sources */,
 				DC1B13D527277D6C0061CFC5 /* ErrorResponse.swift in Sources */,
